@@ -1,114 +1,83 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
-
-import React, {Fragment} from 'react';
+import { Animated, Easing } from "react-native";
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-} from 'react-native';
+  createStackNavigator,
+  createBottomTabNavigator,
+  createAppContainer
+} from "react-navigation";
+import StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
+import Login from "./src/pages/Login";
+import Page1 from "./src/pages/Page1";
+import Page2 from "./src/pages/Page2";
+import Page3 from "./src/pages/Page3";
+import Page4 from "./src/pages/Page4";
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const BottomNavigator = createBottomTabNavigator(
+  {
+    Page1: {
+      screen: Page1,
+      navigationOptions: {
+        title: "页面1",
+        tabBarLabel: "页面1"
+      }
+    },
+    Page2: {
+      screen: Page2,
+      navigationOptions: {
+        title: "页面2",
+        tabBarLabel: "页面2"
+      }
+    },
+    Page3: {
+      screen: Page3,
+      navigationOptions: {
+        title: "页面3",
+        tabBarLabel: "页面3"
+      }
+    }
+  },
+  {
+    initialRouteName: "Page1",
+    tabBarOptions: {
+      showIcon: false,
+      activeTintColor: "#333333",
+      inactiveTintColor: "#999999",
+      activeBackgroundColor: "#f6f6f6",
+      inactiveBackgroundColor: "#f6f6f6",
+      labelStyle: {
+        fontSize: 10
+      },
+      style: {
+        borderTopWidth: 0,
+        backgroundColor: "#f7f7f7"
+      }
+    }
+  }
+);
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
-};
+const AppNavigator = createStackNavigator(
+  {
+    Login: { screen: Login },
+    Main: { screen: BottomNavigator },
+    Page4: { screen: Page4 }
+  },
+  {
+    initialRouteName: "Login",
+    headerMode: "float",
+    mode: "modal",
+    defaultNavigationOptions: {
+      header: null,
+      gesturesEnabled: false
+    },
+    transitionConfig: () => ({
+      transitionSpec: {
+        duration: 300,
+        easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing
+      },
+      screenInterpolator: sceneProps =>
+        StackViewStyleInterpolator.forHorizontal(sceneProps)
+    })
+  }
+);
 
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
-
-export default App;
+export default createAppContainer(AppNavigator);
