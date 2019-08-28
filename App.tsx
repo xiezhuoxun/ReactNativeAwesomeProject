@@ -1,3 +1,4 @@
+import React from "react";
 import { Animated, Easing, Platform, StatusBar } from "react-native";
 import {
   createStackNavigator,
@@ -11,6 +12,7 @@ import Page2 from "./src/pages/Page2";
 import Page3 from "./src/pages/Page3";
 import Page4 from "./src/pages/Page4";
 import ReactNavigation from "./src/pages/ReactNavigation";
+import Icon from "./src/components/Icon";
 
 const BottomNavigator = createBottomTabNavigator(
   {
@@ -18,21 +20,39 @@ const BottomNavigator = createBottomTabNavigator(
       screen: Page1,
       navigationOptions: {
         headerTitle: "首页",
-        tabBarLabel: "首页"
+        tabBarLabel: "首页",
+        tabBarIcon: (opt: TabBarIconProps) => (
+          <Icon
+            style={{ fontSize: 20, color: opt.focused ? "red" : "#999999" }}
+            value={"\ue602"}
+          />
+        )
       }
     },
     Page2: {
       screen: Page2,
       navigationOptions: {
         headerTitle: "购物车",
-        tabBarLabel: "购物车"
+        tabBarLabel: "购物车",
+        tabBarIcon: (opt: TabBarIconProps) => (
+          <Icon
+            style={{ fontSize: 20, color: opt.focused ? "red" : "#999999" }}
+            value={"\ue601"}
+          />
+        )
       }
     },
     Page3: {
       screen: Page3,
       navigationOptions: {
         headerTitle: "个人中心",
-        tabBarLabel: "个人中心"
+        tabBarLabel: "个人中心",
+        tabBarIcon: (opt: TabBarIconProps) => (
+          <Icon
+            style={{ fontSize: 20, color: opt.focused ? "red" : "#999999" }}
+            value={"\ue607"}
+          />
+        )
       }
     }
   },
@@ -41,8 +61,8 @@ const BottomNavigator = createBottomTabNavigator(
     tabBarOptions: {
       showLabel: true,
       showIcon: true,
-      activeTintColor: "#333333",
-      inactiveTintColor: "#999999",
+      activeTintColor: "red",
+      inactiveTintColor: "#333333",
       activeBackgroundColor: "#f6f6f6",
       inactiveBackgroundColor: "#f6f6f6",
       labelStyle: {
@@ -69,7 +89,7 @@ const AppNavigator = createStackNavigator(
     mode: "modal",
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: "green", // TabBar 背景色
+        backgroundColor: "red", // TabBar 背景色
         elevation: 0,
         height: Platform.OS == "android" ? 45 + StatusBar.currentHeight : 45,
         shadowOpacity: 0,

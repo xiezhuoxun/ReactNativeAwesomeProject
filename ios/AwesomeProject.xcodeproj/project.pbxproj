@@ -19,6 +19,7 @@
 		3B19A505A95F0D6B521BE348 /* libPods-AwesomeProject-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31781E54EAE68979985AC167 /* libPods-AwesomeProject-tvOS.a */; };
 		8B84AD6146C565B8370106F4 /* libPods-AwesomeProject-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A138C05C494645AC4C625B3 /* libPods-AwesomeProject-tvOSTests.a */; };
 		962A31C51EC06C06D3F60AF1 /* libPods-AwesomeProjectTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA20EBCD2F1DB65C5A5CAADD /* libPods-AwesomeProjectTests.a */; };
+		AFFFB31D231223B100086EE1 /* iconfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AFFFB31C231223B100086EE1 /* iconfont.ttf */; };
 		E111F8A5E74E1993ADF86091 /* libPods-AwesomeProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A806EC75872D0F57A637EE1 /* libPods-AwesomeProject.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		707534833695CAD3FA5CA417 /* Pods-AwesomeProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProjectTests.release.xcconfig"; path = "Target Support Files/Pods-AwesomeProjectTests/Pods-AwesomeProjectTests.release.xcconfig"; sourceTree = "<group>"; };
 		7A138C05C494645AC4C625B3 /* libPods-AwesomeProject-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProject-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3DE906250CC66AC3630F80 /* Pods-AwesomeProjectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProjectTests.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeProjectTests/Pods-AwesomeProjectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AFFFB31C231223B100086EE1 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = AwesomeProject/iconfont.ttf; sourceTree = "<group>"; };
 		BA20EBCD2F1DB65C5A5CAADD /* libPods-AwesomeProjectTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AwesomeProjectTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D267F9E363709662795BC8BE /* Pods-AwesomeProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AwesomeProject.debug.xcconfig"; path = "Target Support Files/Pods-AwesomeProject/Pods-AwesomeProject.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -125,6 +127,7 @@
 		13B07FAE1A68108700A75B9A /* AwesomeProject */ = {
 			isa = PBXGroup;
 			children = (
+				AFFFB31C231223B100086EE1 /* iconfont.ttf */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -161,7 +164,6 @@
 				7E3DE906250CC66AC3630F80 /* Pods-AwesomeProjectTests.debug.xcconfig */,
 				707534833695CAD3FA5CA417 /* Pods-AwesomeProjectTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -308,6 +310,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -338,6 +341,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				AFFFB31D231223B100086EE1 /* iconfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
