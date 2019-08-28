@@ -2,11 +2,6 @@ import * as React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
 export default class Page1 extends React.Component<any, any> {
-  static navigationOptions = () => ({
-    headerTitle: "首页",
-    title: "首页",
-    headerRight: ""
-  });
 
   public render() {
     return (

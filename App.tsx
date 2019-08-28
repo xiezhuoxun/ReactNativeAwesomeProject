@@ -3,7 +3,10 @@ import { Animated, Easing, Platform, StatusBar } from "react-native";
 import {
   createStackNavigator,
   createBottomTabNavigator,
-  createAppContainer
+  createAppContainer,
+  BottomTabBarProps,
+  NavigationSceneRendererProps,
+  TabBarIconProps
 } from "react-navigation";
 import StackViewStyleInterpolator from "react-navigation-stack/src/views/StackView/StackViewStyleInterpolator";
 import Login from "./src/pages/Login";
@@ -86,7 +89,8 @@ const AppNavigator = createStackNavigator(
   {
     initialRouteName: "Login",
     headerMode: "float",
-    mode: "modal",
+    mode: "card",
+    headerLayoutPreset: "center",
     defaultNavigationOptions: {
       headerStyle: {
         backgroundColor: "red", // TabBar 背景色
@@ -116,10 +120,27 @@ const AppNavigator = createStackNavigator(
         easing: Easing.out(Easing.poly(4)),
         timing: Animated.timing
       },
-      screenInterpolator: sceneProps =>
+      screenInterpolator: (sceneProps: NavigationSceneRendererProps) =>
         StackViewStyleInterpolator.forHorizontal(sceneProps)
     })
   }
 );
+
+// 动态设置第一层级的标题
+BottomNavigator.navigationOptions = (bottomTabBar: BottomTabBarProps) => {
+  const { routes, index } = bottomTabBar.navigation.state;
+  const navigationOptions = { title: "" };
+  if (routes[index].routeName === "Page1") {
+    navigationOptions.title = "首页";
+    StatusBar.setBarStyle("light-content", false);
+  } else if (routes[index].routeName === "Page2") {
+    navigationOptions.title = "购物车";
+    StatusBar.setBarStyle("light-content", false);
+  } else if (routes[index].routeName === "Page3") {
+    navigationOptions.title = "个人中心";
+    StatusBar.setBarStyle("light-content", false);
+  }
+  return navigationOptions;
+};
 
 export default createAppContainer(AppNavigator);

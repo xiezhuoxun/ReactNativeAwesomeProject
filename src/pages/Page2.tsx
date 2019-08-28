@@ -2,10 +2,7 @@ import * as React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export default class Page2 extends React.Component<any, any> {
-  static navigationOptions = () => ({
-    title: "购物车",
-    headerRight: ""
-  });
+  
   public render() {
     return (
       <View style={Styles.container}>
