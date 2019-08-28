@@ -1,15 +1,17 @@
 import * as React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default class Page4 extends React.Component<any> {
+export default class ReactNavigation extends React.Component<any, any> {
+
   static navigationOptions = () => ({
-    title: "Page4",
+    title: "ReactNavigation示例",
     headerRight: ""
   });
+
   public render() {
     return (
       <View style={Styles.container}>
-        <Text>我是Page4</Text>
+        <Text>ReactNavigation</Text>
       </View>
     );
   }

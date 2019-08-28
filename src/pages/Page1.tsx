@@ -1,7 +1,13 @@
 import * as React from "react";
 import { View, Text, StyleSheet, Button } from "react-native";
 
-export default class Page1 extends React.Component<any> {
+export default class Page1 extends React.Component<any, any> {
+  static navigationOptions = () => ({
+    headerTitle: "首页",
+    title: "首页",
+    headerRight: ""
+  });
+
   public render() {
     return (
       <View style={Styles.container}>
@@ -10,6 +16,12 @@ export default class Page1 extends React.Component<any> {
           title="去页面4"
           onPress={() => {
             this.props.navigation.navigate("Page4");
+          }}
+        />
+        <Button
+          title="ReactNavigation示例"
+          onPress={() => {
+            this.props.navigation.navigate("ReactNavigation");
           }}
         />
       </View>
